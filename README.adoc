@@ -53,10 +53,8 @@ You'll configure the provided inventory and system services to use Jaeger for di
 
 == Additional prerequisites 
 
-Before you begin, make sure you have all the necessary prerequisites. You can export the data that MicroProfile Telemetry 1.0 collects to Jaeger. Additionally, OpenTelemetry includes a simple logging exporter, which provides an easy way to check that spans are being created by viewing the data in your console. This may be helpful for debugging.
+Before you begin, make sure you have all the necessary prerequisites. You can export the data that MicroProfile Telemetry 1.0 collects to Jaeger. The Jaeger all-in-one executable file is configured for quick local testing. You can find information about the Jaeger server and instructions for starting the all-in-one executable file in the link:https://www.jaegertracing.io/docs/1.22/getting-started/#all-in-one[Jaeger documentation]. Additionally, OpenTelemetry includes a simple logging exporter, which provides an easy way to check that spans are being created by viewing the data in your console. This may be helpful for debugging.
 
-Jaeger:
-Before you begin, deploy the Jaeger all-in-one executable file to start the Jaeger tracing system. The Jaeger all-in-one executable file is configured for quick local testing. You can find information about the Jaeger server and instructions for starting the all-in-one executable file in the Jaeger documentation.
 Before you proceed, make sure that your Jaeger server is up and running. Jaeger can be found at the http://localhost:16686 URL.
 
 // =================================================================================================
@@ -65,7 +63,7 @@ Before you proceed, make sure that your Jaeger server is up and running. Jaeger 
 [role='command']
 include::{common-includes}/gitclone.adoc[]
 
-=== Try what you'll build
+== Getting Started 
 The fastest way to work through this guide is to clone the Git repository and use the projects that are provided inside:
 
 ```
@@ -79,13 +77,26 @@ The finish directory contains the finished project that you will build.
 
 Before you begin, make sure you have all the necessary prerequisites.
 
+=== Try what you'll build
+
+The finish directory in the root of this guide contains the finished application. Give it a try before you proceed.
+
+Open a command-line session and navigate to the finish/system directory. Run the following Maven goal to build the system service and deploy it to Open Liberty:
+
 Start the system service:
 
 ```
+cd system
 mvn liberty:run
 ```
 
-Navigate to the system properties endpoint:
+After you see the following message in both command-line sessions, your system service is ready:
+
+```
+The defaultServer server is ready to run a smarter planet.
+```
+
+Make sure that your Jaeger server is running and navigate to the system properties endpoint:
 
 http://localhost:9080/system/properties
 
